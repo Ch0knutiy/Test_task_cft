@@ -18,20 +18,23 @@ public class InputParser {
         int argsCounter = 0;
         if(args.length >=3){
             for(int i = 0; i < 2; i++) {
-                if ("-a".equalsIgnoreCase(args[argsCounter]) || "-d".equalsIgnoreCase(args[argsCounter])) {
+                if (("-a".equalsIgnoreCase(args[argsCounter]) || "-d".equalsIgnoreCase(args[argsCounter])) && argsCounter == 0) {
                     if ("-d".equalsIgnoreCase(args[argsCounter])) {
                         isReverse = true;
                     }
                     argsCounter++;
                 }
-
-                if ("-s".equalsIgnoreCase(args[argsCounter]) || "-i".equalsIgnoreCase(args[argsCounter])) {
+                else if ("-s".equalsIgnoreCase(args[argsCounter]) || "-i".equalsIgnoreCase(args[argsCounter])) {
                     if ("-s".equalsIgnoreCase(args[argsCounter])) {
                         isString = true;
                     }
                     argsCounter++;
+                    if (argsCounter == 1)
+                        break;
                 }
+                else return  false;
             }
+
             outFileName = args[argsCounter++];
             inputFileNames = new ArrayList<String>(Arrays.stream(args).toList().subList(argsCounter, args.length));
             return inputFileNames.size() >= 1;
