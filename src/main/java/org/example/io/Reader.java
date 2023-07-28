@@ -23,7 +23,7 @@ public class Reader {
                 System.out.println(file.getName() + " is empty");
             }
             if(isString) {
-                readCompare = (String str) -> value.compareTo(str) < 0;
+                readCompare = (String str) -> value.compareTo(str) > 0;
                 readVerify = (String str) -> {
                     if (str.contains(" "))
                         return false;
@@ -67,5 +67,13 @@ public class Reader {
                 break;
             }
         }
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public boolean isEmpty() {
+        return empty;
     }
 }
