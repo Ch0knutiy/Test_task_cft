@@ -3,6 +3,7 @@ package org.example;
 import org.example.io.Reader;
 import org.example.io.Writer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -50,6 +51,13 @@ public class Sorter {
             res.read();
             if(res.isEmpty())
                 readers.remove(res);
+        }
+
+        try {
+            writer.close();
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

@@ -20,6 +20,7 @@ public class Reader {
                 value = scanner.next();
             else{
                 empty = true;
+                scanner.close();
                 System.out.println(file.getName() + " is empty");
             }
             if(isString) {
@@ -64,6 +65,7 @@ public class Reader {
             }
             else {
                 empty = true;
+                scanner.close();
                 break;
             }
         }

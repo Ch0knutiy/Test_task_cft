@@ -26,4 +26,7 @@ public class Writer {
             System.out.println(e.getMessage());
         }
     }
+    public void close() throws IOException {
+        writer.close();
+    }
 }
